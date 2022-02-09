@@ -16,7 +16,18 @@ contract Patxreon {
         uint256 fundingRemaining;
     }
 
-    mapping(address => Subscription[]) subscriptions;
+    mapping(address => Subscription[]) public subscriptions;
+
+    /**
+     * @notice Get the number of subscribes an account has.
+     */
+    function getSubscriptions(address account)
+        public
+        view
+        returns (Subscription[] memory)
+    {
+        return subscriptions[account];
+    }
 
     /**
      * @notice Creates a new subscripion.
