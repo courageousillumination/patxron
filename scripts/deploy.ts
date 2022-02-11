@@ -3,6 +3,7 @@
 //
 // When running the script with `npx hardhat run <script>` you'll find the Hardhat
 // Runtime Environment's members available in the global scope.
+import { ethers } from "ethers";
 import hre from "hardhat";
 
 async function main() {
@@ -25,9 +26,9 @@ async function main() {
   const [_, bob] = await hre.ethers.getSigners();
   await patxreon.createSubscription(
     bob.address,
-    1000000000000,
+    ethers.constants.WeiPerEther.mul(2),
     60 * 60 * 24 * 7, // 1 week
-    { value: 1000000000000 }
+    { value: ethers.constants.WeiPerEther.mul(4) }
   );
 
   console.log("Initialized with sample data.");

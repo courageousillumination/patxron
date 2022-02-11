@@ -1,15 +1,13 @@
-# Basic Sample Hardhat Project
+# Patxreon
 
-This project demonstrates a basic Hardhat use case. It comes with a sample contract, a test for that contract, a sample script that deploys that contract, and an example of a task implementation, which simply lists the available accounts.
+Support creators, on the blockchain.
 
-Try running some of the following tasks:
+## Getting started
 
-```shell
-npx hardhat accounts
-npx hardhat compile
-npx hardhat clean
-npx hardhat test
-npx hardhat node
-node scripts/sample-script.js
-npx hardhat help
+Run each of the three in a seperate terminal (the first and last one block).
+
+```
+yarn dev:startnode
+yarn dev:deploy
+yarn dev:startApp
 ```
