@@ -16,6 +16,8 @@ contract Patxreon {
         uint256 fundingRemaining;
     }
 
+    event NewSubscription(address indexed subscriber, address indexed subscribeTo);
+
     mapping(address => Subscription[]) public subscriptions;
 
     /**
@@ -58,6 +60,7 @@ contract Patxreon {
         // NOTE: Because the lastWithdrawn is set to 0, a creator can immedately
         // withdraw these funds.
         subs.push(Subscription(msg.sender, amount, interval, 0, funding));
+        emit NewSubscription(msg.sender, subscribeTo);
     }
 
     /**

@@ -18,9 +18,16 @@ async function main() {
   const Patxreon = await hre.ethers.getContractFactory("Patxreon");
   const patxreon = await Patxreon.deploy();
 
+  
   await patxreon.deployed();
+  
 
   console.log("Patxreon deployed to:", patxreon.address);
+
+  const Ptoken = await hre.ethers.getContractFactory("PToken");
+  const ptoken = await Ptoken.deploy(20000);
+  await ptoken.deployed();
+  console.log("PToken deployed to:", ptoken.address);
 
   // Seed some initial subscriptions
   const [_, bob] = await hre.ethers.getSigners();
